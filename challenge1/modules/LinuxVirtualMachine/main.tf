@@ -57,8 +57,8 @@ resource "azurerm_linux_virtual_machine" "vms" {
   resource_group_name             = each.value.resource_group_name
   location                        = each.value.location
   size                            = each.value.size
-  admin_username                  = each.value.admin_username
-  admin_password                  = each.value.admin_password
+  admin_username                  = data.azurerm_key_vault_secret.keyvaultsecret1.value
+  admin_password                  = data.azurerm_key_vault_secret.keyvaultsecret2.value
   disable_password_authentication = false
   custom_data                     = lookup(each.value, "userdata_script", null) != null ? base64encode(file("${path.module}/../../scripts/${each.value.userdata_script}")) : null
   network_interface_ids           = [azurerm_network_interface.nic[each.key].id]

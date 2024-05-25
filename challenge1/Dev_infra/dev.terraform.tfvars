@@ -1,13 +1,13 @@
 rgs = {
-  rg-dev-challange1 = {
+  rg-dev-challenge1 = {
     location = "West Europe"
   }
 }
 
 vnets_subnets = {
-  vnet-challange1 = {
+  vnet-challenge1 = {
     location            = "West Europe"
-    resource_group_name = "rg-dev-challange1"
+    resource_group_name = "rg-dev-challenge1"
     address_space       = ["10.0.0.0/16"]
     # The AzureBastionSubnet Block is required in subnets if enable_bastion=true 
     # AzureBastionSubnet = {
@@ -30,9 +30,9 @@ vnets_subnets = {
 
 vms = {
   "frontendvm" = {
-    resource_group_name = "rg-dev-challange1"
+    resource_group_name = "rg-dev-challenge1"
     location            = "West Europe"
-    vnet_name           = "vnet-challange1"
+    vnet_name           = "vnet-challenge1"
     subnet_name         = "frontend-subnet"
     size                = "Standard_DS1_v2"
     admin_username      = "devopsadmin"
@@ -47,9 +47,9 @@ vms = {
     enable_public_ip = false
   }
   "backendvm" = {
-    resource_group_name = "rg-dev-challange1"
+    resource_group_name = "rg-dev-challenge1"
     location            = "West Europe"
-    vnet_name           = "vnet-challange1"
+    vnet_name           = "vnet-challenge1"
     subnet_name         = "backend-subnet"
     size                = "Standard_DS1_v2"
     admin_username      = "devopsadmin"
@@ -66,9 +66,9 @@ vms = {
 }
 
 loadbalancers = {
-  lb-challange1 = {
+  lb-challenge1 = {
     location                       = "West Europe"
-    resource_group_name            = "rg-dev-challange1"
+    resource_group_name            = "rg-dev-challenge1"
     frontend_ip_configuration_name = "PublicIPAddress"
     sku                            = "Standard"
   }
@@ -77,14 +77,14 @@ loadbalancers = {
 backend_pools = {
   frontend-pool = {
     port        = 80
-    lb_name     = "lb-challange1"
+    lb_name     = "lb-challenge1"
     backend_vms = ["frontendvm1", "frontendvm2"]
   }
 }
 
 servers_dbs = {
-  "devopsinssrv1" = {
-    resource_group_name          = "rg-dev-challange1"
+  "Challenge1srv1" = {
+    resource_group_name          = "rg-dev-challenge1"
     location                     = "West Europe"
     version                      = "12.0"
     administrator_login          = "devopsadmin"
