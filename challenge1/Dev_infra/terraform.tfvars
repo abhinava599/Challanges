@@ -13,7 +13,7 @@ vnets_subnets = {
     # AzureBastionSubnet = {
     #     address_prefix = "10.0.2.0/24"
     # }
-    enable_bastion = false
+    enable_bastion = true
     subnets = {
       frontend-subnet = {
         address_prefix = "10.0.0.0/24"
@@ -28,6 +28,15 @@ vnets_subnets = {
   }
 }
 
+key_vault = {
+  "kv1" = {
+    name = "challengekv"
+    location ="West Europe"
+    resource_group_name = "rg-dev-challenge1"
+
+  }
+}
+
 vms = {
   "frontendvm" = {
     resource_group_name = "rg-dev-challenge1"
@@ -35,8 +44,6 @@ vms = {
     vnet_name           = "vnet-challenge1"
     subnet_name         = "frontend-subnet"
     size                = "Standard_DS1_v2"
-    admin_username      = "devopsadmin"
-    admin_password      = "P@ssw01rd@123"
     inbound_open_ports  = [22, 80]
     source_image_reference = {
       publisher = "Canonical"
@@ -52,8 +59,6 @@ vms = {
     vnet_name           = "vnet-challenge1"
     subnet_name         = "backend-subnet"
     size                = "Standard_DS1_v2"
-    admin_username      = "devopsadmin"
-    admin_password      = "P@ssw01rd@123"
     inbound_open_ports  = [22, 80]
     source_image_reference = {
       publisher = "Canonical"
@@ -61,9 +66,10 @@ vms = {
       sku       = "20_04-lts"
       version   = "latest"
     }
-    enable_public_ip = true
+    enable_public_ip = false
   }
 }
+
 
 loadbalancers = {
   lb-challenge1 = {
@@ -78,12 +84,12 @@ backend_pools = {
   frontend-pool = {
     port        = 80
     lb_name     = "lb-challenge1"
-    backend_vms = ["frontendvm1", "frontendvm2"]
+    backend_vms = ["frontendvm", "backendvm"]
   }
 }
 
 servers_dbs = {
-  "Challenge1srv1" = {
+  "challenge1srv1" = {
     resource_group_name          = "rg-dev-challenge1"
     location                     = "West Europe"
     version                      = "12.0"

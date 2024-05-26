@@ -9,6 +9,13 @@ module "networking" {
   vnets_subnets = var.vnets_subnets
 }
 
+module "keyvault" {
+  depends_on = [module.rgs]
+  source     = "../modules/keyvault"
+  key_vault  = var.key_vault
+}
+
+
 module "vms" {
   depends_on      = [module.rgs, module.networking]
   source          = "../modules/LinuxVirtualMachine"
@@ -16,13 +23,13 @@ module "vms" {
   vnet_subnet_ids = module.networking.vnet_subnet_ids
 }
 
-# module "loadbalancers" {
-#   depends_on    = [module.rgs, module.networking, module.vms]
-#   source        = "../modules/LoadBalancer"
-#   loadbalancers = var.loadbalancers
-#   backend_pools = var.backend_pools
-#   nic_ids       = module.vms.vm_nic_ids
-# }
+module "loadbalancers" {
+  depends_on    = [module.rgs, module.networking, module.vms]
+  source        = "../modules/LoadBalancer"
+  loadbalancers = var.loadbalancers
+  backend_pools = var.backend_pools
+  nic_ids       = module.vms.vm_nic_ids
+}
 
 module "database" {
   depends_on  = [module.rgs]

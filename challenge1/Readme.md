@@ -1,6 +1,6 @@
 # azure-todo-app-terraform 🚀
 
-Welcome to azure-todo-app-terraform! This repository contains Terraform configurations to deploy a todo-app on the Azure cloud platform.
+Welcome to azure-terraform! This repository contains Terraform configurations to deploy a three tier architecture on the Azure cloud platform.
 
 ## Folder Structure 📁
 
@@ -25,16 +25,16 @@ azure-todo-app-terraform/
 
 ## Getting Started 🏁
 
-To get started with deploying the todo-app on Azure using Terraform, follow these steps:
+To get started with deploying Three tier architecutre infra
 
 1. **Clone the Repository**: 
    ```
-   git clone https://github.com/devopsinsiders/azure-todo-app-terraform.git
+   git clone "" 
    ```
 
 2. **Navigate to the Directory**:
    ```
-   cd azure-todo-app-terraform
+   cd challenge1
    ```
 
 3. **Set Up Azure Credentials**:
@@ -58,16 +58,3 @@ To get started with deploying the todo-app on Azure using Terraform, follow thes
    terraform apply
    ```
 
-8. **Access Your Todo App**:
-   Once deployment is complete, access your todo-app on Azure.
-
-## Contributing 🤝
-
-We welcome contributions from the community! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
-
-## License 📄
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
-Feel free to use and customize this README.md file as needed for your repository!

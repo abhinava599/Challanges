@@ -1,6 +1,6 @@
 data "azurerm_key_vault" "keyvault" {
-  name                = "Challange1_KV"
-  resource_group_name = "Shivam-resourcegroup"
+  name                = "challengekv"
+  resource_group_name = "rg-dev-challenge1"
 }
 
 data "azurerm_key_vault_secret" "keyvaultsecret1" {
