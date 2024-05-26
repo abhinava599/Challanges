@@ -1,4 +1,4 @@
-# azure-todo-app-terraform 🚀
+# azure-Three-Tier-terraform 🚀
 
 Welcome to azure-terraform! This repository contains Terraform configurations to deploy a three tier architecture on the Azure cloud platform.
 
