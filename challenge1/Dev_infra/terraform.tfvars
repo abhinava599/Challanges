@@ -95,6 +95,6 @@ servers_dbs = {
     version                      = "12.0"
     administrator_login          = "devopsadmin"
     administrator_login_password = "P@ssw01rd@123"
-    dbs                          = ["todoappdb"]
+    dbs                          = ["appdb"]
   }
 }
